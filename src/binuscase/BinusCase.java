@@ -50,8 +50,12 @@ public class BinusCase {
             ok = cekKopi( tipe );
         }while(ok == false);
 
-        System.out.print( "Tambahan gula [ Y / T ]: " );
-        gula = sc.nextLine();
+        do{
+            System.out.print( "Tambahan gula [ Y / T ]: " );
+            gula = sc.nextLine();
+            ok = cekGula( gula );
+        }while(ok == false);
+        
         System.out.print( "Quantity: " );
         qty = sc.nextInt();
 
@@ -146,5 +150,18 @@ public class BinusCase {
         sc.nextLine();
         
         return payments;
+    }
+
+    private static boolean cekGula(String gula) {
+        boolean ok = false; 
+        
+        if ( gula.equals( "Y" ) || 
+                gula.equals( "y" ) ||
+                gula.equals( "T" ) ||
+                gula.equals( "t" ) ){
+            ok = true;
+        }
+        
+        return ok;    
     }
 }
